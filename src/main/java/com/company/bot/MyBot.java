@@ -20,11 +20,9 @@ public class MyBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (update.hasMessage()) {
             Message message = update.getMessage();
-
             MainController.handleMessage(message);
         } else if (update.hasCallbackQuery()) {
             CallbackQuery callbackQuery = update.getCallbackQuery();
-
             MainController.handleCallback(callbackQuery);
         }
     }

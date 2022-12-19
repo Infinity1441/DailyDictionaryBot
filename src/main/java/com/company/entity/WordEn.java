@@ -11,8 +11,13 @@ public class WordEn {
     private int id;
     private String wordEn;
     private String chatId;
+    private String userFirstName;
     private String wordUz;
-    private String defintion;
+    private String definition;
     private String example;
     private boolean wordStatusAutomatic;
+
+//    private String audioUrl;
+//    private String transcription;
+//    private Meaning ;
 }
