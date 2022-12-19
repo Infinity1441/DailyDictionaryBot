@@ -34,7 +34,7 @@ public class MyBot extends TelegramLongPollingBot {
         return Container.USERNAME;
     }
 
-    public void senMsg(Object obj) {
+    public void sendMsg(Object obj) {
         try {
             if (obj instanceof SendMessage) {
                 execute((SendMessage) obj);
