@@ -32,6 +32,11 @@
             <artifactId>telegrambots</artifactId>
             <version>6.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.0</version>
+        </dependency>
 
     </dependencies>
 
