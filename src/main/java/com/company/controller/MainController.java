@@ -36,7 +36,6 @@ public class MainController {
         if (text.equals("/start")) {
             sendMessage.setText("Hello " + firstName + " bratan🖐\nWelcome to daily dictionary bot\uD83D\uDCDA");
             sendMessage.setReplyMarkup(KeyboardButtonUtil.getSendWordButton());
-
         } else if (text.equals(SENDWORD)) {
             sendMessage.setText("Send your word in english: ");
             userStatusMap.put(chatId, UserStatus.SEND_WORD);
@@ -73,22 +72,29 @@ public class MainController {
     public static void handleCallback(CallbackQuery callbackQuery) {
         String chatId = String.valueOf(callbackQuery.getMessage().getChatId());
 
-        DeleteMessage deleteMessage = new DeleteMessage();
-        deleteMessage.setChatId(chatId);
-        deleteMessage.setMessageId(callbackQuery.getMessage().getMessageId());
-        MYBOT.sendMsg(deleteMessage);
-
+        deleteMessage(chatId,callbackQuery.getMessage().getMessageId());
         String data = callbackQuery.getData();
 
-        if (data.equals(MANUAL_CALLBACK) && userStatusMap.containsKey(chatId) && userStatusMap.get(chatId).equals(UserStatus.SELECT_MANUAL_AUTOMATIC)) {
+
+        if (userStatusMap.containsKey(chatId) && userStatusMap.get(chatId).equals(UserStatus.SELECT_MANUAL_AUTOMATIC)) {
             SendMessage sendMessage = new SendMessage();
             sendMessage.setChatId(chatId);
-            if (data.startsWith("automatic")) {
+
+            if (data.equals(AUTOMATIC_CALLBACK)) {
                 wordList.stream().filter(wordEn -> wordEn.getChatId().equals(chatId)).findAny().ifPresent(wordEn -> wordEn.setWordStatusAutomatic(false));
+
+                sendMessage.setText("Your word has been successfully saved!");
+            } else {
+                sendMessage.setText("Send uzbek translation: ");
+                userStatusMap.put(chatId, UserStatus.SEND_TRANSLATION);
             }
-            sendMessage.setText("Send uzbek translation: ");
-            userStatusMap.put(chatId, UserStatus.SEND_TRANSLATION);
             MYBOT.sendMsg(sendMessage);
         }
+    }
+    private static void deleteMessage(String chatId, int messageId){
+        DeleteMessage deleteMessage = new DeleteMessage();
+        deleteMessage.setChatId(chatId);
+        deleteMessage.setMessageId(messageId);
+        MYBOT.sendMsg(deleteMessage);
     }
 }

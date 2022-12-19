@@ -5,6 +5,7 @@ import com.company.controller.MainController;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -36,8 +37,8 @@ public class MyBot extends TelegramLongPollingBot {
         try {
             if (obj instanceof SendMessage) {
                 execute((SendMessage) obj);
-            }else if (obj instanceof SendDocument)
-                execute((SendDocument) obj);
+            }else if (obj instanceof DeleteMessage)
+                execute((DeleteMessage) obj);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
