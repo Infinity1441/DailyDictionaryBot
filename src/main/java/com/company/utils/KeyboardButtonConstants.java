@@ -1,7 +1,8 @@
 package com.company.utils;
 
 public interface KeyboardButtonConstants {
-    String SENDWORD = "Send Word";
+    String SEND_WORD = "Send Word";
+    String IMPROVE_PRONUNCIATION = "Improve Pronunciation 🗣️";
 
 
 }

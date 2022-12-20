@@ -37,10 +37,16 @@ public class MyBot extends TelegramLongPollingBot {
         try {
             if (obj instanceof SendMessage) {
                 execute((SendMessage) obj);
-            }else if (obj instanceof DeleteMessage)
+            } else if (obj instanceof DeleteMessage)
                 execute((DeleteMessage) obj);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
+//            } else if (obj instanceof )
+//                execute((DeleteMessage) obj);
+
+    } catch(
+    TelegramApiException e)
+
+    {
+        e.printStackTrace();
     }
+}
 }

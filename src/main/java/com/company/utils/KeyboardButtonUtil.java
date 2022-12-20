@@ -28,11 +28,12 @@ public class KeyboardButtonUtil {
     }
 
 
-    public static ReplyKeyboard getSendWordButton() {
+    public static ReplyKeyboard getSEND_WORDButton() {
 
         return getMarkup(getRowList(
                 getRow(
-                        getButton(KeyboardButtonConstants.SENDWORD)
+                        getButton(KeyboardButtonConstants.SEND_WORD),
+                        getButton(KeyboardButtonConstants.IMPROVE_PRONUNCIATION)
                 )
         ));
     }

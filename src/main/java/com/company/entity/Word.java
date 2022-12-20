@@ -1,12 +1,18 @@
 package com.company.entity;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+import java.util.List;
+@AllArgsConstructor
+@Getter
 public class Word {
     private String word;
+    private String chatId;
     private String phonetic;
     private List<Phonetics> phonetics;
     private List<Meanings> meanings;
+    private boolean wordStatusAutomatic;
 
     public Word(String word, String phonetic, List<Phonetics> phonetics, List<Meanings> meanings) {
         this.word = word;
@@ -14,6 +20,7 @@ public class Word {
         this.phonetics = phonetics;
         this.meanings = meanings;
     }
+
 
     public String getWord() {
         return word;
