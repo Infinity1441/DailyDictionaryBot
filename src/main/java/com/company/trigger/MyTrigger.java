@@ -25,7 +25,7 @@ public class MyTrigger implements Job {
         try {
             JobDetail jobDetail = JobBuilder.newJob(MyTrigger.class).build();
 
-            Trigger trigger = TriggerBuilder.newTrigger().withIdentity("CroneTrigger")
+            Trigger trigger = TriggerBuilder.newTrigger().withIdentity("CronTrigger")
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(60).repeatForever()).build();
 
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();

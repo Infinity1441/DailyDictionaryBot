@@ -35,8 +35,8 @@ public class MainController {
 
         if (text.equals("/start")) {
             sendMessage.setText("Hello " + firstName + " bratan🖐\nWelcome to daily dictionary bot\uD83D\uDCDA");
-            sendMessage.setReplyMarkup(KeyboardButtonUtil.getSendWordButton());
-        } else if (text.equals(SENDWORD)) {
+            sendMessage.setReplyMarkup(KeyboardButtonUtil.getSEND_WORDButton());
+        } else if (text.equals(SEND_WORD)) {
             sendMessage.setText("Send your word in english: ");
             userStatusMap.put(chatId, UserStatus.SEND_WORD);
         } else if (userStatusMap.containsKey(chatId)) {
