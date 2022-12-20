@@ -71,8 +71,6 @@ public class MainController {
                     sendMessage.setText(Translator.getUzbekTranslation(text));
                 }
             }
-        } else if (text.equals(IMPROVE_PRONUNCIATION)) {
-
         } else if (text.equals(ONLINE_TRANSLATION)) {
             sendMessage.setText("Send your word in english: ");
             userStatusMap.put(chatId,UserStatus.SEND_WORD_FOR_ONLINE_TRANSLATOR);

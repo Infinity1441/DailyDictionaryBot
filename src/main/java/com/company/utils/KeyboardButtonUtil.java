@@ -33,7 +33,6 @@ public class KeyboardButtonUtil {
         return getMarkup(getRowList(
                 getRow(
                         getButton(KeyboardButtonConstants.SEND_WORD),
-                        getButton(KeyboardButtonConstants.IMPROVE_PRONUNCIATION),
                         getButton(KeyboardButtonConstants.ONLINE_TRANSLATION)
                 )
         ));
