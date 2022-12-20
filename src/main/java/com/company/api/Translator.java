@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 
 public class Translator {
 
-    private static void getEnglishWordsAndDefinitions(String word, String chatId) {
+    public static Word getEnglishWordsAndDefinitions(String word, String chatId) {
         try {
             HttpRequest postRequest = HttpRequest.newBuilder().uri(new URI("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)).GET().build();
 
@@ -26,8 +26,8 @@ public class Translator {
             Gson gson = new Gson();
 
             Word[] words = gson.fromJson(postResponse.body(), Word[].class);
-
-
+            words[0].setChatId(chatId);
+            return words[0];
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -72,5 +72,10 @@ public class Translator {
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String getUzbekTranslation(String text) {
+        //TODO
+        return null;
     }
 }

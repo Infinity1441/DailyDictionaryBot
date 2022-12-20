@@ -36,5 +36,14 @@ public class Word {
 
     public List<Meanings> getMeanings() {
         return meanings;
+        ///
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public void setWordStatusAutomatic(boolean wordStatusAutomatic) {
+        this.wordStatusAutomatic = wordStatusAutomatic;
     }
 }

@@ -3,6 +3,7 @@ package com.company.controller;
 import static com.company.container.Container.*;
 
 
+import com.company.api.Translator;
 import com.company.db.Database;
 import com.company.entity.WordEn;
 import com.company.status.UserStatus;
@@ -16,6 +17,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
+
+import java.util.Objects;
 
 public class MainController {
 
@@ -64,7 +67,15 @@ public class MainController {
                     Database.writeWordTodatabase(wordEn1);
                     userStatusMap.remove(chatId);
                 }
+                case SEND_WORD_FOR_ONLINE_TRANSLATOR -> {
+                    sendMessage.setText(Translator.getUzbekTranslation(text));
+                }
             }
+        } else if (text.equals(IMPROVE_PRONUNCIATION)) {
+
+        } else if (text.equals(ONLINE_TRANSLATION)) {
+            sendMessage.setText("Send your word in english: ");
+            userStatusMap.put(chatId,UserStatus.SEND_WORD_FOR_ONLINE_TRANSLATOR);
         }
         MYBOT.sendMsg(sendMessage);
     }
