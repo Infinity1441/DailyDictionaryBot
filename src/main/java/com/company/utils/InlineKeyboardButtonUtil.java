@@ -2,10 +2,6 @@ package com.company.utils;
 
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
-
-import javax.swing.plaf.PanelUI;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class InlineKeyboardButtonUtil {
