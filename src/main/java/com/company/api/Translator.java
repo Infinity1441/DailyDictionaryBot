@@ -4,6 +4,7 @@ import com.company.entity.Definitions;
 import com.company.entity.Meanings;
 import com.company.entity.Transcript;
 import com.company.entity.Word;
+import com.darkprograms.speech.translator.GoogleTranslate;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class Translator {
             HttpResponse<String> postResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             transcript = gson.fromJson(postResponse.body(), Transcript.class);
             HttpRequest getRequest = HttpRequest.newBuilder()
-                    .uri(new URI("https://api.assemblyai.com/v2/transcript/"+ transcript.getId()))
+                    .uri(new URI("https://api.assemblyai.com/v2/transcript/" + transcript.getId()))
                     .header("Authorization", "5f226a5332e0465da294bbdf29f66ea5")
                     .build();
 
@@ -62,7 +63,7 @@ public class Translator {
                 transcript = gson.fromJson(response.body(), Transcript.class);
                 System.out.println(transcript.getStatus());
 
-                if (transcript.getStatus().equals("completed") || transcript.getStatus().equals("error")){
+                if (transcript.getStatus().equals("completed") || transcript.getStatus().equals("error")) {
                     break;
                 }
                 Thread.sleep(3000);
@@ -74,8 +75,15 @@ public class Translator {
         }
     }
 
-    public static String getUzbekTranslation(String text) {
-        //TODO
-        return null;
+    public static String getUzbekTranslation(String word) {
+        try {
+            String translate = GoogleTranslate.translate("uz", word);
+            return "Meaning: " + translate;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "No translation!";
     }
+
+
 }
