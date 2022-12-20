@@ -36,5 +36,6 @@ public class Word {
 
     public List<Meanings> getMeanings() {
         return meanings;
+        ///
     }
 }
