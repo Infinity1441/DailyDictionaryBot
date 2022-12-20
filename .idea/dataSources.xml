@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/daily_dictionary_bot</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="DailyDictionaryBot@localhost" uuid="06304777-f5df-463f-b232-ef02b3128b60">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/DailyDictionaryBot</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
